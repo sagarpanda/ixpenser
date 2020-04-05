@@ -12,10 +12,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
     - run: yarn install
-    - run: yarn build
+    - run: yarn bootstrap
+    - run: yarn build:html5
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: gh-pages
-        FOLDER: build
+        FOLDER: packages/html5/build
